@@ -17,7 +17,8 @@
     }
 </style>
 <p>Hello world</p>
-<section class="comic-container" style="width: 10px">
+<app-about></app-about>
+<section class="comic-container">
     <article [appBackground]="i" class="comic-card" *ngFor='let comic of comicList; let i = index'>
         <h1>{{comic.title}}</h1>
         <p>{{comic.description}}</p>
