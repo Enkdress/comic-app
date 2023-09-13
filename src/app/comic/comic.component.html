@@ -1,5 +1,13 @@
 <style></style>
 
-<article>
-  <img src="{{ comicImageUrl }}" alt="comic image" />
-</article>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ comic?.title | uppercase }}</ion-card-title>
+    <ion-card-subtitle
+      >Publicado en: {{ comic?.dates?.[0]?.date | date }}</ion-card-subtitle
+    >
+  </ion-card-header>
+  <ion-card-content>
+    <img src="{{ comic?.images }}" alt="{{ comic?.title }}" />
+  </ion-card-content>
+</ion-card>

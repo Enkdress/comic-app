@@ -1,22 +1,43 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Iniciar Sesión
-    </ion-title>
+    <ion-title> Iniciar Sesión </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <ion-item>
       <ion-label position="floating">Correo Electrónico</ion-label>
-      <ion-input type="text" [(ngModel)]="email"></ion-input>
+      <ion-input formControlName="email" type="email"></ion-input>
     </ion-item>
+    <div
+      *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched"
+    >
+      El correo electrónico es obligatorio.
+    </div>
+    <div
+      *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched"
+    >
+      Ingresa un correo electrónico válido.
+    </div>
+
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
+      <ion-input formControlName="password" type="password"></ion-input>
     </ion-item>
-  </ion-list>
+    <div
+      *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched"
+    >
+      La contraseña es obligatoria.
+    </div>
+    <div
+      *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched"
+    >
+      La contraseña debe tener al menos 6 caracteres.
+    </div>
 
-  <ion-button expand="full" (click)="login()">Iniciar Sesión</ion-button>
+    <ion-button expand="full" type="submit" [disabled]="!loginForm.valid"
+      >Iniciar Sesión</ion-button
+    >
+  </form>
 </ion-content>

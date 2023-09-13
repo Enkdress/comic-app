@@ -1,7 +1,5 @@
 <style>
   #container {
-    position: relative;
-    top: 60vh;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -32,14 +30,12 @@
   <ion-content class="ion-padding">
     <ion-list>
       <ion-item routerLink="/profile" routerDirection="forward">
-        <ion-nav-link router-direction="forward">
-          Profile
-        </ion-nav-link>
+        <ion-nav-link router-direction="forward"> Profile </ion-nav-link>
       </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
-<ion-content [fullscreen]="false" id="main-content">
+<ion-content [fullscreen]="true" id="main-content">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Marvel Comics</ion-title>
@@ -47,29 +43,6 @@
   </ion-header>
 
   <div id="container">
-    <app-comic
-      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/c/10/64ecad1a77b52/clean.jpg"
-    ></app-comic>
-    <app-comic
-      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/9/a0/64e761e69aae1/clean.jpg"
-    ></app-comic>
-    <app-comic
-      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/3/30/64c7d384b1314/clean.jpg"
-    ></app-comic>
-    <app-comic
-      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/e/f0/64ecad1ac34c8/clean.jpg"
-    ></app-comic>
-    <app-comic
-      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/c/10/64ecad1a77b52/clean.jpg"
-    ></app-comic>
-    <app-comic
-      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/9/a0/64e761e69aae1/clean.jpg"
-    ></app-comic>
-    <app-comic
-      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/3/30/64c7d384b1314/clean.jpg"
-    ></app-comic>
-    <app-comic
-      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/e/f0/64ecad1ac34c8/clean.jpg"
-    ></app-comic>
+    <app-comic *ngFor="let comic of comics" [comic]="comic"></app-comic>
   </div>
 </ion-content>
