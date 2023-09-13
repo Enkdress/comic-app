@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <!-- Avatar -->
+    <ion-avatar class="ion-margin-bottom">
+      <img src="https://ionicframework.com/docs/img/demos/avatar.svg">
+    </ion-avatar>
+  
+    <!-- Nombre y apellido -->
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-text>{{name}}</ion-text>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="stacked">Apellido</ion-label>
+      <ion-text>{{lastName}}</ion-text>
+    </ion-item>
+  
+    <!-- Correo -->
+    <ion-item>
+      <ion-label position="stacked">Correo</ion-label>
+      <ion-text>{{email}}</ion-text>
+    </ion-item>
+  </ion-content>
+</ion-content>
