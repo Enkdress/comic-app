@@ -1,20 +1,67 @@
+<style>
+  #container {
+    position: relative;
+    top: 60vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  app-comic {
+    width: 40%;
+  }
+</style>
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Marvel Comics </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">This is the menu content.</ion-content>
+</ion-menu>
+<ion-content [fullscreen]="false" id="main-content">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Marvel Comics</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <app-comic
+      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/c/10/64ecad1a77b52/clean.jpg"
+    ></app-comic>
+    <app-comic
+      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/9/a0/64e761e69aae1/clean.jpg"
+    ></app-comic>
+    <app-comic
+      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/3/30/64c7d384b1314/clean.jpg"
+    ></app-comic>
+    <app-comic
+      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/e/f0/64ecad1ac34c8/clean.jpg"
+    ></app-comic>
+    <app-comic
+      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/c/10/64ecad1a77b52/clean.jpg"
+    ></app-comic>
+    <app-comic
+      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/9/a0/64e761e69aae1/clean.jpg"
+    ></app-comic>
+    <app-comic
+      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/3/30/64c7d384b1314/clean.jpg"
+    ></app-comic>
+    <app-comic
+      comicImageUrl="https://cdn.marvel.com/u/prod/marvel/i/mg/e/f0/64ecad1ac34c8/clean.jpg"
+    ></app-comic>
   </div>
 </ion-content>
