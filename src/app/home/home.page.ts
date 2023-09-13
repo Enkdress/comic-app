@@ -10,7 +10,7 @@ export class HomePage implements OnInit {
   public comics: Comic[] = [];
   constructor(private marvelService: MarvelService) {}
 
-  ngOnInit() {
+  public getMarvelComic() {
     this.marvelService.getCharacters().subscribe((data) => {
       this.comics = data.data.results
         .filter((comic: any) => comic.images.length > 0)
@@ -21,5 +21,9 @@ export class HomePage implements OnInit {
           )[0],
         }));
     });
+  }
+
+  ngOnInit() {
+    this.getMarvelComic();
   }
 }

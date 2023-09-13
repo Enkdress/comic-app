@@ -7,9 +7,6 @@
     justify-content: center;
     align-items: center;
   }
-  app-comic {
-    width: 40%;
-  }
 </style>
 
 <ion-header [translucent]="true">
@@ -36,6 +33,9 @@
   </ion-content>
 </ion-menu>
 <ion-content [fullscreen]="true" id="main-content">
+  <ion-refresher (ionRefresh)="getMarvelComic()">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Marvel Comics</ion-title>
