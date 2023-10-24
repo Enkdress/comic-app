@@ -12,6 +12,10 @@ import { SQLiteService } from './services/sqlite.service';
 import { BookmarkService } from './services/bookmarks.service';
 import { InitializeAppService } from './services/initialize.app.service';
 import { DbnameVersionService } from './services/dbname-version.service';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 // Define the APP_INITIALIZER factory
 export function initializeFactory(init: InitializeAppService) {
@@ -24,6 +28,9 @@ export function initializeFactory(init: InitializeAppService) {
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

@@ -1,0 +1,76 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Registrate</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <form [formGroup]="ionicForm" novalidate>
+    <div class="ion-padding">
+      <ion-item>
+        <ion-input class="input" formControlName="email" placeholder="email" />
+        <ion-icon slot="end" name="mail-outline"></ion-icon>
+      </ion-item>
+      <div
+        style="padding-top: -26px; padding-bottom: 16px"
+        *ngIf="this.ionicForm.controls?.['email']?.touched && this.ionicForm.controls?.['email']?.invalid"
+      >
+        <ion-text
+          *ngIf="errorControl['email']?.errors?.['required']"
+          class="errorInput"
+          color="danger"
+          >Email is required.</ion-text
+        >
+        <ion-text
+          *ngIf="errorControl['email']?.errors?.['pattern']"
+          class="errorInput"
+          color="danger"
+          >Please provide valid email.</ion-text
+        >
+      </div>
+      <ion-item>
+        <ion-input
+          class="input"
+          type="password"
+          formControlName="password"
+          placeholder="password"
+        />
+        <ion-icon slot="end" name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      <div
+        style="padding-top: -26px; padding-bottom: 16px"
+        *ngIf="this.ionicForm.controls?.['password']?.touched && this.ionicForm.controls?.['password']?.invalid"
+      >
+        <ion-text
+          *ngIf="errorControl['password']?.errors?.['required']"
+          class="errorInput"
+          color="danger"
+          >Password is required.</ion-text
+        >
+        <ion-text
+          *ngIf="errorControl['password']?.errors?.['pattern']"
+          class="errorInput"
+          color="danger"
+          >Password must be more than 8 length containing at least one
+          character. at least one Capital letter. at least one number.
+        </ion-text>
+      </div>
+      <div class="loginLink">
+        <p class="p">
+          Already a memember?
+          <a [routerLink]="['/login']" class="text-red-500">Log in</a>
+        </p>
+      </div>
+    </div>
+
+    <ion-button
+      *ngIf="ionicForm.valid"
+      (click)="signUP()"
+      expand="full"
+      type="button"
+      class="bg-red-500"
+    >
+      <ion-text>Continuar</ion-text>
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-button>
+  </form>
+</ion-content>
