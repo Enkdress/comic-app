@@ -5,8 +5,15 @@ const config: CapacitorConfig = {
   appName: 'comic-app',
   webDir: 'www',
   server: {
-    androidScheme: 'https'
-  }
+    androidScheme: 'https',
+  },
+  plugins: {
+    SQLite: {
+      syncDatabase: {
+        name: 'marvel_comics_db',
+      },
+    },
+  },
 };
 
 export default config;

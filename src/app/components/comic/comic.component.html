@@ -1,0 +1,10 @@
+<style></style>
+
+<article (click)="goToComicPage(comic?.id ?? 0)">
+  <img
+    class="rounded-lg max-h-[250px] object-contain"
+    src="{{ comic?.images }}"
+    alt="{{ comic?.title }}"
+  />
+  <h3 class="text-[12px] mt-2">{{ comic?.title | uppercase }}</h3>
+</article>

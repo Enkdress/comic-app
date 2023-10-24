@@ -1,0 +1,59 @@
+<style>
+  #container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+<ion-header collapse="condense" translucent="true">
+  <ion-toolbar>
+    <div class="mx-auto px-4 py-2">
+      <h1 class="text-3xl font-bold text-center text-red-500">MARVEL</h1>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" id="main-content">
+  <ion-refresher (ionRefresh)="getMarvelComic()">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-header translucent="true">
+    <ion-toolbar>
+      <div class="flex justify-between px-4 py-2">
+        <section class="flex flex-col">
+          <span class="text-gray-500 text-sm">Bienvenido Carlos 👋</span>
+          <h3 class="text-lg">Relájate y lee tu comic favorito!</h3>
+        </section>
+        <div class="h-12 w-12 rounded-full bg-white"></div>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <app-home-section title="Series">
+    <section class="flex overflow-x-scroll gap-3 px-5">
+      <div class="bg-gray-800 rounded-full px-3 py-1 flex-none">X-Men</div>
+      <div class="bg-gray-800 rounded-full px-3 py-1 flex-none">Spiderman</div>
+      <div class="bg-gray-800 rounded-full px-3 py-1 flex-none">
+        4 fantasticos
+      </div>
+      <div class="bg-gray-800 rounded-full px-3 py-1 flex-none">X-Men</div>
+      <div class="bg-gray-800 rounded-full px-3 py-1 flex-none">X-Men</div>
+      <div class="bg-gray-800 rounded-full px-3 py-1 flex-none">Spiderman</div>
+      <div class="bg-gray-800 rounded-full px-3 py-1 flex-none">
+        4 fantasticos
+      </div>
+      <div class="bg-gray-800 rounded-full px-3 py-1 flex-none">Spiderman</div>
+      <div class="bg-gray-800 rounded-full px-3 py-1 flex-none">
+        4 fantasticos
+      </div>
+    </section>
+  </app-home-section>
+
+  <app-home-section title="X-Men">
+    <div class="flex gap-5 overflow-x-scroll w-full pl-5">
+      <app-comic class="flex-none w-1/2" *ngFor="let comic of xmenComics" [comic]="comic"></app-comic>
+    </div>
+  </app-home-section>
+</ion-content>
