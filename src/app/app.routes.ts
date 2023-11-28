@@ -12,6 +12,11 @@ const routes: Routes = [
           import('./pages/home/home.module').then((m) => m.HomePageModule),
       },
       {
+        path: 'map',
+        loadChildren: () =>
+          import('./pages/map/map.module').then((m) => m.MapPageModule),
+      },
+      {
         path: '',
         redirectTo: 'login',
         pathMatch: 'full',

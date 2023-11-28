@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>map</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">map</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div>Mapa</div>
+  <input type="number" [(ngModel)]="latitude" placeholder="Latitude">
+  <input type="number" [(ngModel)]="longitude" placeholder="Longitude">
+  <div id="map" style="height: 400px;"></div>
+  <app-open-map [latitude]="latitude" [longitude]="longitude"></app-open-map>
+</ion-content>
